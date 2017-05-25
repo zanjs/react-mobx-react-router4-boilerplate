@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
+import '../styles/home.scss';
 
 @inject("store")
 @observer
@@ -16,7 +17,7 @@ export default class Home extends Component {
 				<header>
 					<div className="hero-unit">
 						<div className="react-logo" />
-						<h1>React MobX React-Router 4 Boilerplate</h1>
+						<h1>React MobX React-Router 5 Boilerplate</h1>
 					</div>
 					<div className="hero-subunit">
 						<h4>

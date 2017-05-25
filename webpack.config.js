@@ -1,11 +1,15 @@
 var path = require("path");
 var webpack = require("webpack");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
+var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+var DashboardPlugin = require('webpack-dashboard/plugin');
+var hostUrl = "http://127.0.0.1:3000";
+
 
 module.exports = {
   entry: [
     "react-hot-loader/patch",
-    "webpack-dev-server/client?http://0.0.0.0:3000",
+    "webpack-dev-server/client?" + hostUrl,
     "webpack/hot/only-dev-server",
     "babel-polyfill",
     "whatwg-fetch",
@@ -82,9 +86,12 @@ module.exports = {
     ]
   },
   plugins: [
+    new DashboardPlugin(),
+    // new DashboardPlugin(() => {}),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({ hash: false, template: "./index.hbs" }),
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb/)
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb/),
+    new OpenBrowserPlugin({ url: hostUrl })
   ]
 };

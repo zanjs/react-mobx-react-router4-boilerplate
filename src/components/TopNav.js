@@ -20,7 +20,7 @@ export default class TopNav extends Component {
 		const { authenticated, authenticating } = this.store;
 		return (
 			<nav>
-				<ActiveLink activeOnlyWhenExact={true} to="/">Home</ActiveLink>
+				<ActiveLink activeOnlyWhenExact={true} to="/">Home5</ActiveLink>
 				{authenticated && <ActiveLink to="/posts">Posts</ActiveLink>}
 			</nav>
 		);

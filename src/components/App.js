@@ -62,8 +62,7 @@ export default class App extends Component {
 					)}
 				/>
 				<footer>
-					{" "}
-					| github:
+					github:
 					{" "}
 					<a href="https://github.com/zanjs" target="_blank">
 						zanjs

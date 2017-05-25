@@ -2,7 +2,7 @@ var path = require("path");
 var webpack = require("webpack");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
 
 // Create multiple instances 
 const extractCSS = new ExtractTextPlugin('assets/[name]-one.css');
@@ -10,7 +10,8 @@ const extractCSS = new ExtractTextPlugin('assets/[name]-one.css');
 module.exports = {
   entry: {
     vendor: ["react", "react-dom", "react-router"],
-    app: ["babel-polyfill", "./src/index"]
+    babel: ["babel-polyfill"],
+    app: ["./src/index"]
   },
   output: {
     path: path.join(__dirname, "dist"),
