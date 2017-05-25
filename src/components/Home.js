@@ -26,7 +26,7 @@ export default class Home extends Component {
 					</div>
 					<div className="github-buttons">
 						<a
-							href=""
+							href="https://github.com/zanjs"
 							target="_blank"
 						>
 							Download from GitHub
