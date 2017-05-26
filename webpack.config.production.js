@@ -3,21 +3,17 @@ var webpack = require("webpack");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-
-// Create multiple instances 
-const extractCSS = new ExtractTextPlugin('assets/[name]-one.css');
-
 module.exports = {
   entry: {
-    vendor: ["react", "react-dom", "react-router"],
-    babel: ["babel-polyfill"],
+    vendor: ["react", "react-dom"],
+    polyfill: ["babel-polyfill"],
     app: ["./src/index"]
   },
   output: {
     path: path.join(__dirname, "dist"),
     publicPath: "/",
     filename: "assets/[name].[hash].js",
-    chunkFilename: "assets/[name].[chunkhash].js"
+    chunkFilename: "assets/[name].[chunkhash].chunk.js"
   },
   devtool: "cheap-module-source-map",
   module: {
@@ -110,7 +106,7 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(true),
     new webpack.optimize.CommonsChunkPlugin({
-      name: "vendor",
+      name: ["polyfill", "vendor"],
       minChunks: Infinity
     }),
     new webpack.optimize.UglifyJsPlugin({
@@ -125,7 +121,6 @@ module.exports = {
       }
     }),
     new ExtractTextPlugin("assets/[name].[contenthash:8].css"),
-    // extractCSS,
     // new OptimizeCssAssetsPlugin({
     //   assetNameRegExp: /\.optimize\.css$/g,
     //   cssProcessor: require('cssnano'),
