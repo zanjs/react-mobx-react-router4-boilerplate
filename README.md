@@ -1,5 +1,7 @@
 # React MobX React-Router 4 Boilerplate
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/zanjs/react-mobx-react-router4-boilerplate.svg)](https://greenkeeper.io/)
+
 ### :tada: React, React-Router@next, MobX and Webpack 2.
 
 
